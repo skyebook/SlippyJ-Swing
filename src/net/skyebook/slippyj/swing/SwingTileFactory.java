@@ -28,10 +28,14 @@ public class SwingTileFactory extends TileFactory {
 	 * @see net.skyebook.slippyj.tile.TileFactory#createTile(int, int, int)
 	 */
 	@Override
-	public Tile createTile(int zoomLevel, int x, int y) {
+	public Tile createTile(int zoomLevel, int x, int y, int xLocation, int yLocation) {
 		SwingTile tile = new SwingTile();
+		
 		try {
-			ImageIcon image = new ImageIcon(new URL(tileServer+zoomLevel+"/"+x+"/"+y+".png"));
+			URL tileURL = new URL(tileServer+zoomLevel+"/"+x+"/"+y+".png");
+			System.out.println("Tile URL: " + tileURL);
+			ImageIcon image = new ImageIcon(tileURL);
+			tile.setBounds(xLocation, yLocation, image.getIconWidth(), image.getIconHeight());
 			tile.setIcon(image);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

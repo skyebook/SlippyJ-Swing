@@ -14,7 +14,7 @@ import net.skyebook.slippyj.TileContainer;
  * @author Skye Book
  *
  */
-public class SwingTileContainer extends JPanel implements TileContainer<SwingTile>{
+public class SwingTileContainer<Tile> extends JPanel implements TileContainer<SwingTile>{
 	private static final long serialVersionUID = 1L;
 
 	public SwingTileContainer() {
@@ -63,6 +63,22 @@ public class SwingTileContainer extends JPanel implements TileContainer<SwingTil
 		for(Component tile : getComponents()){
 			tile.setLocation(tile.getX()+xDelta, tile.getY()+yDelta);
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see net.skyebook.slippyj.TileContainer#isXInverted()
+	 */
+	@Override
+	public boolean isXInverted() {
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.skyebook.slippyj.TileContainer#isYInverted()
+	 */
+	@Override
+	public boolean isYInverted() {
+		return true;
 	}
 
 }
