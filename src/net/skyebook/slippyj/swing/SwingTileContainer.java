@@ -3,10 +3,11 @@
  */
 package net.skyebook.slippyj.swing;
 
+import java.awt.Component;
+
 import javax.swing.JPanel;
 
 import net.skyebook.slippyj.TileContainer;
-import net.skyebook.slippyj.tile.Tile;
 
 /**
  * A Swing implementation of {@link TileContainer}
@@ -27,6 +28,7 @@ public class SwingTileContainer extends JPanel implements TileContainer<SwingTil
 	 */
 	@Override
 	public void addTile(SwingTile tile) {
+		add(tile);
 	}
 
 	/* (non-Javadoc)
@@ -34,6 +36,7 @@ public class SwingTileContainer extends JPanel implements TileContainer<SwingTil
 	 */
 	@Override
 	public void removeTile(SwingTile tile) {
+		remove(tile);
 	}
 
 	/* (non-Javadoc)
@@ -57,8 +60,9 @@ public class SwingTileContainer extends JPanel implements TileContainer<SwingTil
 	 */
 	@Override
 	public void moveTiles(int xDelta, int yDelta) {
-		// TODO Auto-generated method stub
-
+		for(Component tile : getComponents()){
+			tile.setLocation(tile.getX()+xDelta, tile.getY()+yDelta);
+		}
 	}
 
 }
