@@ -3,6 +3,8 @@
  */
 package net.skyebook.slippyj.test;
 
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.JFrame;
@@ -36,7 +38,34 @@ public class SwingTest {
 				stc.setSize(1000, 1000);
 				frame.add(stc);
 				frame.setVisible(true);
-				Palette palette = new Palette(new Coordinate(41, -74), 12, stc, new SwingTileFactory(Palette.OSMSlippyServer));
+				final Coordinate center = new Coordinate(41, -74);
+				final Palette palette = new Palette(center, 12, stc, new SwingTileFactory(Palette.OSMSlippyServer));
+				
+				frame.addComponentListener(new ComponentListener() {
+					
+					@Override
+					public void componentShown(ComponentEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void componentResized(ComponentEvent e) {
+						if(!palette.isUpdating()) palette.build(center);
+					}
+					
+					@Override
+					public void componentMoved(ComponentEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void componentHidden(ComponentEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
 			}
 		});
 		
