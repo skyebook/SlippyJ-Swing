@@ -78,7 +78,7 @@ public class SwingTileContainer<Tile> extends JPanel implements TileContainer<Sw
 	 */
 	@Override
 	public boolean isYInverted() {
-		return true;
+		return false;
 	}
 
 }

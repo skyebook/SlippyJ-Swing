@@ -35,6 +35,7 @@ public class SwingTileFactory extends TileFactory {
 			URL tileURL = new URL(tileServer+zoomLevel+"/"+x+"/"+y+".png");
 			System.out.println("Tile URL: " + tileURL);
 			ImageIcon image = new ImageIcon(tileURL);
+			System.out.println("Tile Going To: " + xLocation +", "+yLocation);
 			tile.setBounds(xLocation, yLocation, image.getIconWidth(), image.getIconHeight());
 			tile.setIcon(image);
 		} catch (MalformedURLException e) {
