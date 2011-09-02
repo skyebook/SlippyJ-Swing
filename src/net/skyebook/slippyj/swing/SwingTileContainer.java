@@ -13,10 +13,10 @@ import net.skyebook.slippyj.tile.Tile;
  * @author Skye Book
  *
  */
-public class JPanelTileContainer extends JPanel implements TileContainer{
+public class SwingTileContainer extends JPanel implements TileContainer<SwingTile>{
 	private static final long serialVersionUID = 1L;
 
-	public JPanelTileContainer() {
+	public SwingTileContainer() {
 		super();
 		// use an absolute layout
 		setLayout(null);
@@ -26,14 +26,14 @@ public class JPanelTileContainer extends JPanel implements TileContainer{
 	 * @see net.skyebook.slippyj.TileContainer#addTile(net.skyebook.slippyj.tile.Tile)
 	 */
 	@Override
-	public void addTile(Tile tile) {
+	public void addTile(SwingTile tile) {
 	}
 
 	/* (non-Javadoc)
 	 * @see net.skyebook.slippyj.TileContainer#removeTile(net.skyebook.slippyj.tile.Tile)
 	 */
 	@Override
-	public void removeTile(Tile tile) {
+	public void removeTile(SwingTile tile) {
 	}
 
 	/* (non-Javadoc)
