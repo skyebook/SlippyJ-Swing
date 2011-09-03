@@ -95,4 +95,13 @@ public class SwingTileContainer<Tile> extends JPanel implements TileContainer<Sw
 		return false;
 	}
 
+	@Override
+	public void removeAllTiles() {
+		for(Component component : getComponents()){
+			if(component instanceof SwingTile){
+				remove(component);
+			}
+		}
+	}
+
 }
