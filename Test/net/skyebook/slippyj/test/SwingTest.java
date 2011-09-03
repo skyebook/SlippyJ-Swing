@@ -47,6 +47,7 @@ public class SwingTest {
 			@Override
 			public void run() {
 				JFrame frame = new JFrame("SlippyJ Swing Test");
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				SwingTileContainer stc = new SwingTileContainer();
 				frame.setSize(1000, 1000);
 				stc.setSize(1000, 1000);
